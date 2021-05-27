@@ -139,12 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Console.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MazeData.cpp" />
+    <ClCompile Include="Data.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Console.h" />
     <ClInclude Include="headers_WhatIneed.h" />
-    <ClInclude Include="MazeData.h" />
+    <ClInclude Include="Data.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

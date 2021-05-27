@@ -18,8 +18,7 @@
 		}
 */
 
-
-class MazeData
+class Data
 {
 private : 
 	// 1번째 숫자 -> 맵 개수 , 2번째 숫자 -> Y ( 벽 포함 ), 3번째 숫자 X ( 벽 포함 )
@@ -93,7 +92,22 @@ private :
 		}
 	};
 	int mazeCount = 5;
+	int mazeNum = 0;
 public:
+
+	static struct Position {
+		int x;
+		int y;
+	};
+
+	static struct Direction {
+	Position up = { 0, 1 };
+	Position down = { 0, -1 };
+	Position right = { 1, 0 };
+	Position left = { -1 , 0 };
+	}; 
+
 	void getMaze(int arr[][12]);
+	void refreshMaze();
 };
 

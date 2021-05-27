@@ -1,7 +1,6 @@
 #include "headers_WhatIneed.h"
-#include "MazeData.h"
 
-int maze[12][12] =
+int backgroundMap[12][12] =
 { {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
  {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
  {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -14,25 +13,47 @@ int maze[12][12] =
  {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
  {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-};
+}; // 저장 하고 있을 맵.
+
+int currentMap[12][12] =
+{ {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+ {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+}; //실시간으로 데이터가 저장 될 맵.
 
 int main()
 {
 	srand((unsigned)time(NULL));
 
-	MazeData md;
-	md.getMaze(maze);
 
+	Data dataClass;
+	dataClass.refreshMaze();
+	dataClass.getMaze(backgroundMap);
+	dataClass.getMaze(currentMap);
+
+	Data::Position playerPos;
 	for (int i = 0; i < 12; i++)
 	{
 		for (int j = 0; j < 12; j++)
 		{
-			if (maze[i][j] == 3) cout << "▣";
-			if (maze[i][j] == 2) cout << "★";
-			if (maze[i][j] == 1) cout << "■";
-			if (maze[i][j] == 0) cout << "□";
+			if (backgroundMap[i][j] == 2)
+			{
+				playerPos.x = j;
+				playerPos.y = i;
+			}
 		}
-		cout << endl;
 	}
+
+	Player playerClass;
+	playerClass.ShowScreenFirst(playerPos, backgroundMap);
 
 }
