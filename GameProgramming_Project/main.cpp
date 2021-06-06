@@ -35,25 +35,25 @@ int main()
 	srand((unsigned)time(NULL));
 
 
-	Data dataClass;
-	dataClass.refreshMaze();
-	dataClass.getMaze(backgroundMap);
-	dataClass.getMaze(currentMap);
+	Data* dataClass = new Data();
+	dataClass->refreshMaze();
+	dataClass->getMaze(backgroundMap);
+	dataClass->getMaze(currentMap);
 
-	Data::Position playerPos;
+	Data::Position* playerPos = new Data::Position();
 	for (int i = 0; i < 12; i++)
 	{
 		for (int j = 0; j < 12; j++)
 		{
 			if (backgroundMap[i][j] == 2)
 			{
-				playerPos.x = j;
-				playerPos.y = i;
+				playerPos->x = j;
+				playerPos->y = i;
 			}
 		}
 	}
 
 	Player playerClass;
-	playerClass.ShowScreenFirst(playerPos, backgroundMap);
+	playerClass.ShowScreenFirst(*playerPos, backgroundMap);
 
 }
