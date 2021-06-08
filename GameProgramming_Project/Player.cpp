@@ -5,6 +5,8 @@ Player::Player()
 	this->pos = new Data::Position();
 	this->exit_XY = new Data::Position();
 	this->moveCount = 0;
+	this->coin = 0;
+	this->speed = 1;
 }
 
 void Player::SetPosition(int x, int y)
@@ -57,12 +59,16 @@ void Player::ShowScreen(int map[][12])
 	system("cls");
 	gotoXY(25, 3);
 	cout << "현재 좌표는 " << pos->x << " , " << pos->y;
+	gotoXY(60, 3);
+	cout << "현재 속도 : " << speed;
 	gotoXY(25, 5);
 	cout << "움직인 횟수는 " << moveCount << endl;
 	gotoXY(25, 7);
 	cout << "출구의 좌표는 " << exit_XY->x << ", " << exit_XY->y << endl;
 	gotoXY(25, 9);
 	cout << "종료하려면 Q를 입력해주세요";
+	gotoXY(60, 9);
+	cout << "속도를 높이려면 위쪽 화살표, 낮추려면 아래쪽 화살표를 눌러주세요";
 
 	gotoXY(0, 1);
 	for (int i = 0; i < 12; i++)
@@ -118,12 +124,30 @@ void Player::MoveToExit()
 	{
 		input = getKeyDown();
 		input = tolower(input);
-		if (input == 'q')
+
+		if (input == 0xE0)
 		{
-			return;
+			if (_getch() == 72) // 위쪽 화살표
+			{
+				if (speed == 1.5f)
+					continue;
+
+				speed += 0.1f;
+			}
+			else if (_getch() == 80) // 아래쪽 화살표
+			{
+				if (speed == 0.5f)
+					continue;
+
+				speed -= 0.1f;
+			}
+		}
+		else if (input == 'q')
+		{
+			exit(0);
 		}
 
-		Sleep(100);
+		Sleep(1000 * speed);
 		for (int i = 0; i < 5; i++)
 		{
 			if (i == 0)

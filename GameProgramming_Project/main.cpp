@@ -27,6 +27,6 @@ int main()
 
 	player->SetPosition(playerPos->x, playerPos->y);
 	player->ShowScreenFirst(*playerPos, player->backgroundMap);
-
+	
 	player->MoveToExit();
 }

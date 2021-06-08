@@ -8,6 +8,8 @@ private:
 	Data::Position* pos;
 	Data::Position* exit_XY;
 
+	float speed;
+	int coin;
 	int moveCount;
 public:
 	int currentMap[12][12]; //실시간으로 데이터가 저장 될 맵.
