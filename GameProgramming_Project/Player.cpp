@@ -17,7 +17,6 @@ void Player::SetPosition(int x, int y)
 
 void Player::ShowScreenFirst(Data::Position pos, int map[][12])
 {
-	cout << pos.x << pos.y << endl;
 	for (int i = 0; i < 12; i++)
 	{
 		for (int j = 0; j < 12; j++)
@@ -68,7 +67,7 @@ void Player::ShowScreen(int map[][12])
 	gotoXY(25, 9);
 	cout << "종료하려면 Q를 입력해주세요";
 	gotoXY(60, 9);
-	cout << "속도를 높이려면 위쪽 화살표, 낮추려면 아래쪽 화살표를 눌러주세요";
+	cout << "속도를 높이려면 z 키, 낮추려면 x 키를 눌러주세요";
 
 	gotoXY(0, 1);
 	for (int i = 0; i < 12; i++)
@@ -125,29 +124,44 @@ void Player::MoveToExit()
 		input = getKeyDown();
 		input = tolower(input);
 
-		if (input == 0xE0)
-		{
-			if (_getch() == 72) // 위쪽 화살표
-			{
-				if (speed == 1.5f)
-					continue;
+		//if (input == 0xE0)
+		//{
+		//	if (_getch() == 72) // 위쪽 화살표
+		//	{
+		//		if (speed == 1.5f)
+		//			continue;
 
-				speed += 0.1f;
-			}
-			else if (_getch() == 80) // 아래쪽 화살표
-			{
-				if (speed == 0.5f)
-					continue;
+		//		speed += 0.1f;
+		//	}
+		//	else if (_getch() == 80) // 아래쪽 화살표
+		//	{
+		//		if (speed == 0.5f)
+		//			continue;
 
-				speed -= 0.1f;
-			}
-		}
-		else if (input == 'q')
+		//		speed -= 0.1f;
+		//	}
+		//}
+
+		if (input == 'q')
 		{
 			exit(0);
 		}
+		else if (input == 'z')
+		{
+			if (speed >= 1.5f)
+				speed = 1.4f;
 
-		Sleep(1000 * speed);
+			speed += 0.1f;
+		}
+		else if (input == 'x')
+		{
+			if (speed <= 0.5f)
+				speed = 0.6f;
+
+			speed -= 0.1f;
+		}
+
+		Sleep(100 / speed);
 		for (int i = 0; i < 5; i++)
 		{
 			if (i == 0)
@@ -226,6 +240,7 @@ void Player::MoveToExit()
 
 		if (pos->x == exit_XY->x && pos->y == exit_XY->y)
 		{
+			clrscr();
 			ShowScreen(backgroundMap);
 			cout << "미로의 출구를 찾았습니다!" << endl;
 
@@ -235,7 +250,7 @@ void Player::MoveToExit()
 			}
 
 			cout << "다음 미로를 실행합니다!" << endl;
-			break;
+			return;
 		}
 
 	}
