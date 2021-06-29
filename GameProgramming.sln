@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shooting2", "Shooting2\Shoo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SaveLoadSort", "SaveLoadSort\SaveLoadSort.vcxproj", "{0CAD6927-DF04-4BF3-BF70-E8E07393CCE1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2048", "2048\2048.vcxproj", "{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{0CAD6927-DF04-4BF3-BF70-E8E07393CCE1}.Release|x64.Build.0 = Release|x64
 		{0CAD6927-DF04-4BF3-BF70-E8E07393CCE1}.Release|x86.ActiveCfg = Release|Win32
 		{0CAD6927-DF04-4BF3-BF70-E8E07393CCE1}.Release|x86.Build.0 = Release|Win32
+		{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}.Debug|x64.ActiveCfg = Debug|x64
+		{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}.Debug|x64.Build.0 = Debug|x64
+		{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}.Debug|x86.ActiveCfg = Debug|Win32
+		{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}.Debug|x86.Build.0 = Debug|Win32
+		{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}.Release|x64.ActiveCfg = Release|x64
+		{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}.Release|x64.Build.0 = Release|x64
+		{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}.Release|x86.ActiveCfg = Release|Win32
+		{E2BE3486-C089-4310-BDBC-DFE12CBD2D8F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
